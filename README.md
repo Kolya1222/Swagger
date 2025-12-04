@@ -20,6 +20,10 @@
 php artisan package:installrequire roilafx/swaggeruievo "*"
 ```
 
+2. Публикация стилей и скриптов
+```
+php artisan vendor:publish --provider="roilafx\swaggeruievo\swaggeruievoServiceProvider"
+
 ### 3. Настройка переменных окружения (опционально важный MODX_SITE_URL)
 
 Добавьте в файл `.env` вашего проекта:
