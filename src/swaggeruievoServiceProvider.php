@@ -8,7 +8,7 @@ use roilafx\swaggeruievo\Services\SwaggerGenerator;
 
 class swaggeruievoServiceProvider extends ServiceProvider
 {
-    protected $namespace = 'swagger';
+    protected $namespace = 'swaggeruievo';
 
     public function register()
     {
