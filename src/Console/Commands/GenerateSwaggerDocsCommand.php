@@ -1,9 +1,9 @@
 <?php
 
-namespace roilafx\Swagger\Console\Commands;
+namespace roilafx\swaggeruievo\Console\Commands;
 
 use Illuminate\Console\Command;
-use roilafx\Swagger\Services\SwaggerGenerator;
+use roilafx\swaggeruievo\Services\SwaggerGenerator;
 
 class GenerateSwaggerDocsCommand extends Command
 {

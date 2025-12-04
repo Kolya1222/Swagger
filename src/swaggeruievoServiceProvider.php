@@ -1,12 +1,12 @@
 <?php 
 
-namespace roilafx\Swagger;
+namespace roilafx\swaggeruievo;
 
 use EvolutionCMS\ServiceProvider;
-use roilafx\Swagger\Console\Commands\GenerateSwaggerDocsCommand;
-use roilafx\Swagger\Services\SwaggerGenerator;
+use roilafx\swaggeruievo\Console\Commands\GenerateSwaggerDocsCommand;
+use roilafx\swaggeruievo\Services\SwaggerGenerator;
 
-class SwaggerServiceProvider extends ServiceProvider
+class swaggeruievoServiceProvider extends ServiceProvider
 {
     protected $namespace = 'swagger';
 

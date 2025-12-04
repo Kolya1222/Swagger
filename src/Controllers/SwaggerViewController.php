@@ -1,6 +1,6 @@
 <?php
 
-namespace roilafx\Swagger\Controllers;
+namespace roilafx\swaggeruievo\Controllers;
 
 use Illuminate\View\View;
 use Symfony\Component\HttpKernel\Exception\HttpException;

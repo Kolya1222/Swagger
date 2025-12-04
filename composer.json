@@ -5,13 +5,13 @@
   },
   "autoload": {
     "psr-4": {
-      "EvolutionCMS\\Swagger\\": "src"
+      "EvolutionCMS\\swaggeruievo\\": "src"
     }
   },
   "extra": {
     "laravel": {
       "providers": [
-        "roilafx\\Swagger\\SwaggerServiceProvider"
+        "roilafx\\swaggeruievo\\swaggeruievoServiceProvider"
       ]
     }
   }

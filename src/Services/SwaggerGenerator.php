@@ -1,6 +1,6 @@
 <?php
 
-namespace roilafx\Swagger\Services;
+namespace roilafx\swaggeruievo\Services;
 
 use OpenApi\Annotations as OA;
 use Illuminate\Support\Facades\File;
