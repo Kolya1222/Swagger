@@ -1,0 +1,33 @@
+{
+    "openapi": "3.0.0",
+    "servers": [
+        {
+            "url": "https://evoshop/api",
+            "description": "API Server"
+        }
+    ],
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        }
+    },
+    "security": [
+        {
+            "bearerAuth": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "auth",
+            "description": "Authentication endpoints"
+        },
+        {
+            "name": "users",
+            "description": "User management"
+        }
+    ]
+}
