@@ -11,6 +11,7 @@ class SwaggerViewController
     {
         $config = config('swagger-ui', []);
         $uiConfig = $config['ui'] ?? [];
+        $securityConfig = $config['security'] ?? [];
         
         // Проверяем, включен ли Swagger UI
         if (!($uiConfig['enabled'] ?? true)) {
@@ -40,6 +41,7 @@ class SwaggerViewController
             'plugins' => $uiConfig['plugins'] ?? [],
             'layout' => $uiConfig['layout'] ?? 'StandaloneLayout',
             'custom_css' => $uiConfig['custom_css'] ?? '',
+            'authorization' => $uiConfig['authorization'] ?? [],
         ];
         
         return view('swagger-ui::index', [
@@ -49,7 +51,8 @@ class SwaggerViewController
                 'default' => $default,
             ],
             'config' => $swaggerConfig,
-            'uiConfig' => $uiConfig, // Передаем все конфиги
+            'securityConfig' => $securityConfig,
+            'uiConfig' => $uiConfig,
         ]);
     }   
 }

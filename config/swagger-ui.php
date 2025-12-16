@@ -25,7 +25,8 @@ return [
             'max_displayed_tags' => null,
             'show_extensions' => false,
             'show_common_extensions' => false,
-            'try_it_out_enabled' => false,
+            'persist_authorization' => true,
+            'try_it_out_enabled' => true,
             'request_snippets_enabled' => false,
             'syntax_highlight' => [
                 'activated' => true,
@@ -87,6 +88,21 @@ return [
         'layout' => 'StandaloneLayout', // Или кастомный layout
     ],
     
+    'security' => [
+        'enabled' => false,
+        'securitySchemes' => [
+            'bearerAuth' => [
+                'type' => 'http',
+                'scheme' => 'bearer',
+                'bearerFormat' => 'JWT',
+                'description' => 'Введите токен в формате: Bearer {token}'
+            ]
+        ],
+        'security' => [
+            ['bearerAuth' => []]
+        ]
+    ],
+
     // Настройки генератора документации
     'generator' => [
         'enabled' => env('SWAGGER_GENERATOR_ENABLED', true),

@@ -34,6 +34,7 @@
             const requestSnippets = config.request_snippets || {};
             const macros = config.macros || {};
             const events = config.events || {};
+            const authorization = config.authorization || {};
             
             // Преобразуем фильтр в правильный формат
             let filterValue = display.filter;
@@ -75,19 +76,18 @@
                 showCommonExtensions: {{ $config['display']['show_common_extensions'] ?? 'false' ? 'true' : 'false' }},
                 tryItOutEnabled: {{ $config['display']['try_it_out_enabled'] ?? 'false' ? 'true' : 'false' }},
                 requestSnippetsEnabled: {{ $config['display']['request_snippets_enabled'] ?? 'false' ? 'true' : 'false' }},
-                
+                persistAuthorization: {{ ($config['authorization']['persist_authorization'] ?? true) ? 'true' : 'false' }},
                 // Синтаксис подсветки
                 syntaxHighlight: {
                     activated: {{ $config['display']['syntax_highlight']['activated'] ?? 'true' ? 'true' : 'false' }},
                     theme: "{{ $config['display']['syntax_highlight']['theme'] ?? 'agate' }}"
                 },
-                
                 // Настройки сортировки
                 @if(isset($config['sorting']['operations_sorter']) && $config['sorting']['operations_sorter'])
-                operationsSorter: {{ $config['sorting']['operations_sorter'] }},
+                operationsSorter: "{{ $config['sorting']['operations_sorter'] }}",
                 @endif
                 @if(isset($config['sorting']['tags_sorter']) && $config['sorting']['tags_sorter'])
-                tagsSorter: {{ $config['sorting']['tags_sorter'] }},
+                tagsSorter: "{{ $config['sorting']['tags_sorter'] }}",
                 @endif
                 
                 // Настройки сети
@@ -110,6 +110,12 @@
                 },
                 @endif
                 
+                @if(isset($securityConfig) && isset($securityConfig['securitySchemes']))
+                components: {
+                    securitySchemes: @json($securityConfig['securitySchemes'])
+                },
+                @endif
+
                 // Пресеты и layout
                 presets: [
                     SwaggerUIBundle.presets.apis,
@@ -127,6 +133,10 @@
             ];
             @endif
             
+            @if(isset($securityConfig['security']) && !empty($securityConfig['security']))
+            swaggerConfig.security = @json($securityConfig['security']);
+            @endif
+
             // Создаем экземпляр Swagger UI
             const ui = SwaggerUIBundle(swaggerConfig);
             window.ui = ui;

@@ -1,5 +1,6 @@
 {
   "name": "roilafx/swaggeruievo",
+  "description": "Модуль для переноса Swagger UI в админку Evolution CE",
   "require": {
       "zircote/swagger-php": "^5.7"
   },
